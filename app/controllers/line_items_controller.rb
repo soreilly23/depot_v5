@@ -26,7 +26,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    @line_item = @cart.add_product(product)
 
     respond_to do |format|
       if @line_item.save
@@ -73,4 +73,15 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:product_id, :cart_id)
     end
+
+    def add_product(product)
+      current_item = line_items.find_by(product_id: product.id)
+      if current_item
+        current_item.quantity += 1
+      else
+        current_item = line_items.build(product_id: product.id)
+      end
+      current_item
+    end
+    
 end
