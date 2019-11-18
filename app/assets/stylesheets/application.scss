@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body {
+ body {
   margin: 0;
   padding: 0;
 }
@@ -32,17 +32,17 @@ header.main {
 }
 
 .notice, #notice {
-  background: #ffb;
-  border-radius: 0.5em;
-  border: solid 0.177em #882;
-  color: #882;
-  font-weight: bold;
-  margin-bottom: 1em;
-  padding: 1em 1.414em;
-  text-align: center;
+	background: #ffb;
+	border-radius: 0.5em;
+	border: solid 0.177em #882;
+	color: #882;
+	font-weight: bold;
+	margin-bottom: 1em;
+	padding: 1em 1.414em;
+	text-align: center;
 }
 
-.content {
+.content{
 	margin: 0;
 	padding: 0;
 
@@ -52,9 +52,9 @@ header.main {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 
-	@media (min-width: 30em) {
-	  flex-direction: row;  // desktop is vertically laid out
-	  -webkit-box-orient: horizontal;
+	@media (min-width: 30em){
+		flex-direction: row; // desktop is vertically laid out
+		-webkit-box-orient: horizontal;
 	}
 
 	nav {

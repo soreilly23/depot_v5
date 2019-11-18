@@ -1,7 +1,9 @@
 class LineItemsController < ApplicationController
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart, only: [:create]
+
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+
   # GET /line_items
   # GET /line_items.json
   def index
@@ -73,15 +75,4 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:product_id, :cart_id)
     end
-
-    def add_product(product)
-      current_item = line_items.find_by(product_id: product.id)
-      if current_item
-        current_item.quantity += 1
-      else
-        current_item = line_items.build(product_id: product.id)
-      end
-      current_item
-    end
-    
 end
