@@ -8,6 +8,7 @@ class Product < ApplicationRecord
 		message: 'must be a URL for GIF, JPG, JPEG, or PNG image.'
 	}
 	has_many :line_items
+	has_many :order, through: :line_items
 
 	private
 	#ensure that there are no line items referencing this product
